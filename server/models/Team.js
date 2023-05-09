@@ -8,17 +8,18 @@ const TeamSchema = new mongoose.Schema({
     type: String,
     enum: ['Marketing', 'Human Resources', 'Finance', 'Legal', 'Sales', 'UX/UI' ,'Frontend', 'Backend','Software Development', 'Devops', 'QA' ],
   },
-  description: {
-    type: String,
-  },
-  status: {
-    type: String,
-    enum: ['Not Started', 'In Progress', 'Completed'],
-  },
-  clientId: {
+  teamLeaderID: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Client',
+    ref: 'Employer',
   },
+  projectsId: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: 'Project',
+  },
+  employersId:{
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: 'Employer',
+  }
 });
 
 module.exports = mongoose.model('Team', TeamSchema);

@@ -41,9 +41,9 @@ const EmployerSchema = new mongoose.Schema({
     type: String,
     enum: ['Online', 'Busy','Offline','Deleted'],
   },
-  Photo: {
+  photo: {
     type: String,
-    required: true,
+    // required: true,
   },
   isManager:{
     type: Boolean,
