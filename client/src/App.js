@@ -7,6 +7,9 @@ import NotFound from './pages/NotFound';
 import NavbarSec from './components/navbar/NavbarSec';
 import NavbarPri from './components/navbar/NavbarPri';
 import Employers from './components/employers/Employers';
+import Teams from './components/team/Teams';
+import MyTeam from './components/team/MyTeam';
+import NewTeam from './components/team/NewTeam';
 const cache = new InMemoryCache({
   typePolicies: {
     Query: {
@@ -42,6 +45,9 @@ function App() {
           <div className='container'>
             <Routes>
               <Route path='/employers' element={<Employers />} />
+              <Route path='/myteam' element={<MyTeam />} />
+              <Route path='/teams' element={<Teams />} />
+              <Route path='/newteam' element={<NewTeam />} />
                 {/* <Route path='/' element={<Home />} /> */}
                 {/* <Route path='/projects/:id' element={<Project />} /> */}
               <Route path='*' element={<NotFound />} />

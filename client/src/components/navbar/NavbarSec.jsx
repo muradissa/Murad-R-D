@@ -18,14 +18,14 @@ function NavbarSec() {
           <Nav className="justify-content-center flex-grow-1 pe-3"  style={{ gap: '20px' }}navbarScroll >
  
             <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Employers</Nav.Link>
+            <Nav.Link href="/employers">Employers</Nav.Link>
             <Nav.Link href="#action2">Departments</Nav.Link>
             {/* <Nav.Link href="#action2">My profile</Nav.Link> */}
             <NavDropdown title="Teams" id="navbarScrollingDropdown2">
-              <NavDropdown.Item href="#action3">My Team</NavDropdown.Item>
-              <NavDropdown.Item href="#action3">All Teams</NavDropdown.Item>
+              <NavDropdown.Item href="/myteam">My Team</NavDropdown.Item>
+              <NavDropdown.Item href="/teams">All Teams</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action4">
+              <NavDropdown.Item href="/newteam">
                 Add new team
               </NavDropdown.Item>
             </NavDropdown>

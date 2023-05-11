@@ -31,7 +31,7 @@ const EmployerSchema = new mongoose.Schema({
   },
   department: {
     type: String,
-    enum: ['Marketing', 'Human Resources', 'Finance', 'Legal', 'Sales', 'UX/UI' ,'Frontend', 'Backend','Software Development', 'Devops', 'QA' ],
+    enum: ['Marketing', 'Human Resources', 'Finance', 'Legal', 'Sales', 'UX/UI' ,'Software Development', 'Devops', 'QA' ],
   },
   teamId: {
     type: mongoose.Schema.Types.ObjectId,

@@ -1,0 +1,165 @@
+.card-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    overflow: hidden;
+  }
+
+  .card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .team-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .team-leader, .team-members {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+
+  .more-info-btn, .edit-popup-btn {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 1rem;
+  }
+
+  .more-info-btn:hover, .edit-popup-btn:hover {
+    text-decoration: underline;
+  }
+
+
+/***********************************************************************/
+  /* New Team */
+  .new-team-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: auto;
+  }
+  
+  .new-team-form  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #4e4e4e;
+  }
+  
+  .new-team-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .new-team-form  .form-group {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .new-team-form  .form-label {
+    font-size: 1.2rem;
+    color: #4e4e4e;
+  }
+  
+  .new-team-form  .form-control {
+    font-size: 1.2rem;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2;
+  }
+
+  .new-team-form .form-control:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #6c63ff;
+    border-color: #6c63ff;
+  }
+  
+  .new-team-form  .btn-primary {
+    background-color: #6c63ff;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .new-team-form  .btn-primary:hover {
+    background-color: #524dff;
+    cursor: pointer;
+  }
+  
+  .new-team-form .btn-primary:active {
+    transform: translateY(2px);
+    box-shadow: none;
+  }
+  
+  @media (min-width: 768px) {
+    .new-team-form {
+      width: 80%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .new-team-form {
+      width: 60%;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .new-team-form {
+      width: 80%;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-100px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideOut {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-100px);
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .slide-in {
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  .slide-out {
+    animation: slideOut 0.5s ease-in-out;
+  }
+  
