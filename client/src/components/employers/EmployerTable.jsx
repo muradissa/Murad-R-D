@@ -5,7 +5,9 @@ import { TiUserDelete } from 'react-icons/ti';
 
 function EmployerTable({employees,showEmployerInfo}) {
   return (
-    <Table striped>
+    <div className='employer-table'>
+      
+      <Table striped >
           <thead>
             <tr>
               {/* <th>#</th> */}
@@ -31,6 +33,7 @@ function EmployerTable({employees,showEmployerInfo}) {
             ))}
           </tbody>
         </Table>
+      </div>
   )
 }
 
