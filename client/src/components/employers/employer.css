@@ -1,0 +1,26 @@
+.employer-Info{
+    display: block;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: beige;
+}
+
+.employer-Info-header{
+    display: block;
+    margin: auto auto;
+    text-align: center;
+
+}
+
+.employer-Info-header img{
+    display: block;
+    border-radius: 50%;
+}
+
+.avaliable{
+    border-radius: 50%;
+    border: 2px solid rgb(39, 168, 14);
+    background-color: rgb(20, 141, 20);
+    width: 1rem;
+    height: 1rem;
+}

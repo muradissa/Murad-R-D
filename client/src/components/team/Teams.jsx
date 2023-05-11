@@ -49,7 +49,7 @@ function Teams() {
     ];
 
     return (
-        <div>
+        <div className="team-cards">
             <h1>Our Teams</h1>
             <div className="row">
                 {teams.map((team) => (

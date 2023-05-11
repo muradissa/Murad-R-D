@@ -48,10 +48,6 @@ function TeamCard({team}) {
             
             </Card>
             <EditTeam team={team} show={show} setShow={setShow} />
-            {/* { 
-                openModel && <EditTeam show={show} setShow={setShow} />
-            } */}
-            {/* <EditTeam team={team} openModel={openModel}/> */}
         </>
     );
   }

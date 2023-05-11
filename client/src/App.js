@@ -10,6 +10,8 @@ import Employers from './components/employers/Employers';
 import Teams from './components/team/Teams';
 import MyTeam from './components/team/MyTeam';
 import NewTeam from './components/team/NewTeam';
+import Departmentss from './components/department/Departmentss';
+
 const cache = new InMemoryCache({
   typePolicies: {
     Query: {
@@ -48,6 +50,9 @@ function App() {
               <Route path='/myteam' element={<MyTeam />} />
               <Route path='/teams' element={<Teams />} />
               <Route path='/newteam' element={<NewTeam />} />
+              <Route path='/departments' element={<Departmentss />} />
+
+
                 {/* <Route path='/' element={<Home />} /> */}
                 {/* <Route path='/projects/:id' element={<Project />} /> */}
               <Route path='*' element={<NotFound />} />

@@ -19,7 +19,7 @@ function NavbarSec() {
  
             <Nav.Link href="#action1">Home</Nav.Link>
             <Nav.Link href="/employers">Employers</Nav.Link>
-            <Nav.Link href="#action2">Departments</Nav.Link>
+            <Nav.Link href="/departments">Departments</Nav.Link>
             {/* <Nav.Link href="#action2">My profile</Nav.Link> */}
             <NavDropdown title="Teams" id="navbarScrollingDropdown2">
               <NavDropdown.Item href="/myteam">My Team</NavDropdown.Item>

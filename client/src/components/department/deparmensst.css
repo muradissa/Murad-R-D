@@ -1,0 +1,46 @@
+.department-cards .card {
+    margin: 1rem;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .department-cards .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .department-cards .card-img-top {
+    height: 10rem;
+    object-fit: contain;
+  }
+  
+  .department-cards .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .department-cards .card-text {
+    font-size: 1.2rem;
+    text-align: center;
+
+  }
+  
+  .department-cards .btn {
+    margin-top: 1rem;
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    text-align: center;
+
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+  }
+  
+  .department-cards .btn:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+    color: #fff;
+  }
