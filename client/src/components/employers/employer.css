@@ -35,3 +35,172 @@
     cursor: pointer;
     scale: 1.01;
 }
+
+
+/* 
+.add-employer{
+    color: #000;
+}
+
+.add-employer .modal-btn{
+    margin-left: inherit;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.add-employer .modal-btn :hover{
+    background-color: #3E8E41;
+}
+
+.add-employer .modal-content {
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.add-employer .modal-header {
+    background-color: #4CAF50;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 15px 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.add-employer .modal-body{
+    padding: 20px;
+}
+.add-employer .modal-body .form-group{
+    margin-bottom: 20px;
+}
+.add-employer .modal-body .form-group label {
+    font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        display: block;
+}
+
+.add-employer .modal-body .form-group  input[type="text"] {
+    width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #333;
+}
+.add-employer .modal-body .form-group  input[type="email"] {
+    width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #333;
+}
+.add-employer .modal-body .form-group  input[type="date"] {
+    width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #333;
+}
+.add-employer .modal-body .form-group  input[type="checkbox"] {
+    margin-right: 10px;
+} */
+
+/* .add-employer {}
+
+
+
+.add-employer {}
+
+
+
+.add-employer {}
+
+
+
+.add-employer {} */
+
+
+/* Style for modal */
+.add-employer .modal-content {
+    border-radius: 20px;
+  }
+  
+  .add-employer .modal-header {
+    background-color: #333;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .add-employer .modal-body {
+    background-color: #f5f5f5;
+    /* padding: 30px; */
+    margin: auto auto;
+  }
+  
+  .add-employer .modal-footer {
+    background-color: #f5f5f5;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  /* Style for form */
+
+  .add-employer .form-group label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .add-employer .form-group input {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    max-width: 100%;
+  }
+  
+  .add-employer .form-group input[type="checkbox"] {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .add-employer .form-group input[type="date"] {
+    margin-bottom: 20px;
+  }
+  
+  /* Style for buttons */
+  .add-employer .btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  .add-employer .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  .add-employer .btn-primary:hover, .btn-secondary:hover {
+    opacity: 0.8;
+  }
+#department-dropdown{
+    min-width: 50%;
+    text-align: end;
+}

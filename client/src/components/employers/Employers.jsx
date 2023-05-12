@@ -2,6 +2,10 @@ import React ,{useState} from 'react'
 import EmployersHeader from './EmployersHeader';
 import EmployerTable from './EmployerTable';
 import EmployerInfo from './EmployerInfo';
+import AddEmployer from './AddEmployer';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 
 const employees = [
   {
@@ -128,7 +132,20 @@ function Employers() {
 
     return (
       <>
-        <EmployersHeader/>
+       {/* <Row>
+        <Col>
+         
+        </Col>
+        <Col>
+         
+        </Col>
+      </Row>  */}
+          <EmployersHeader/>
+           {/* <AddEmployer/> */}
+          
+          
+       
+        
         <div className='row employees-body' style={{width:"100%"}}>
           <div className='employees-body-part1' style={{width:"70%"}}>
             <EmployerTable employees={employees} showEmployerInfo={showEmployerInfo}/>
