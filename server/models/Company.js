@@ -8,9 +8,12 @@ const CompanySchema = new mongoose.Schema({
   image: {
     type: String,
   },
+  // ceoId: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'Employer',
+  // },
   ceoId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Employer',
+    type:String,
   },
 });
 

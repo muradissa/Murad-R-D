@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const EmployerSchema = new mongoose.Schema({
+  // firstName lastName phone email password city address department status isPrpjectManager isTeamLeader photo companyId isValid
   firstName: {
     type: String,
     required: true,
@@ -12,14 +13,17 @@ const EmployerSchema = new mongoose.Schema({
   phone: {
     type: String,
     required: true,
+    unique: true,
   },
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   password: {
     type: String,
     required: true,
+    
   },
   city: {
     type: String,
@@ -31,24 +35,40 @@ const EmployerSchema = new mongoose.Schema({
   },
   department: {
     type: String,
-    enum: ['Marketing', 'Human Resources', 'Finance', 'Legal', 'Sales', 'UX/UI' ,'Software Development', 'Devops', 'QA' ],
-  },
-  teamId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Team',
+    enum: ['Marketing', 'Human Resources', 'Finance', 'Legal', 'Sales', 'UX/UI' ,'Software Development', 'Devops', 'QA','Other' ],
+    default: 'Other',
+    // required: true,
   },
   status: {
     type: String,
     enum: ['Online', 'Busy','Offline','Deleted'],
+    default: 'Offline',
+  },
+  isProjectManager:{
+    type: Boolean,
+    default: false,
+  },
+  isTeamLeader:{
+    type: Boolean,
+    default: false,
   },
   photo: {
     type: String,
     // required: true,
   },
-  isManager:{
+  companyId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Company',
+    required: true,
+  },
+  isValid:{
     type: Boolean,
-    default: false,
-  }
+    default: true,
+  }  
+// teamId: {
+//   type: mongoose.Schema.Types.ObjectId,
+//   ref: 'Team',
+// },
 //   clientId: {
 //     type: mongoose.Schema.Types.ObjectId,
 //     ref: 'Client',

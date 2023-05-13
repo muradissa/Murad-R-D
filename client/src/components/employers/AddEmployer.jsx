@@ -65,7 +65,7 @@ function AddEmployer() {
 
   return (
     <div className=''>
-        <div className='justify-content-end' style={{display:"flex"}}>
+        <div className='justify-content-end' style={{display:"flex",marginRight:"1rem"}}>
             <Button onClick={() => setLgShow(true)} style={{ marginLeft:"inherit"}}>New Employer +</Button>
         </div>
         <Modal
