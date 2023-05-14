@@ -129,30 +129,54 @@ const ClientType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
-    projects: {
-      type: new GraphQLList(ProjectType),
-      resolve(parent, args) {
-        return Project.find();
-      },
-    },
-    project: {
-      type: ProjectType,
+    // projects: {
+    //   type: new GraphQLList(ProjectType),
+    //   resolve(parent, args) {
+    //     return Project.find();
+    //   },
+    // },
+    // project: {
+    //   type: ProjectType,
+    //   args: { id: { type: GraphQLID } },
+    //   resolve(parent, args) {
+    //     return Project.findById(args.id);
+    //   },
+    // },
+    // clients: {
+    //   type: new GraphQLList(ClientType),
+    //   resolve(parent, args) {
+    //     return Client.find();
+    //   },
+    // },
+    // client: {
+    //   type: ClientType,
+    //   args: { id: { type: GraphQLID } },
+    //   resolve(parent, args) {
+    //     return Client.findById(args.id);
+    //   },
+    // },
+    company: {
+      type: CompanyType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        return Project.findById(args.id);
+        return Company.findById(args.id);
       },
     },
-    clients: {
-      type: new GraphQLList(ClientType),
-      resolve(parent, args) {
-        return Client.find();
-      },
-    },
-    client: {
-      type: ClientType,
+    employer: {
+      type: EmployerType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        return Client.findById(args.id);
+        return Employer.findById(args.id);
+      },
+    },
+    companyEmployers: {
+      type: new GraphQLList(EmployerType),
+      args: { companyId: { type: GraphQLID } },
+      resolve(parent, args) {
+        const employers =Employer.find({"companyId":args.companyId});
+        // return Employer.find({"companyId":args.companyId});
+        // console.log(employers)
+        return employers;
       },
     },
   },
@@ -280,7 +304,6 @@ const RootQuery = new GraphQLObjectType({
 const mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
-    
     // Add a Company
     addCompany: {
       type: CompanyType,
@@ -299,6 +322,123 @@ const mutation = new GraphQLObjectType({
         return company.save();
       },
     },
+    //Add a Employer
+    // firstName lastName phone email password city address department status isPrpjectManager isTeamLeader photo companyId isValid
+    addEmployer: {
+      type: EmployerType,
+      args: {
+        firstName: { type: new GraphQLNonNull(GraphQLString) },
+        lastName: { type: new GraphQLNonNull(GraphQLString) },
+        phone: { type: new GraphQLNonNull(GraphQLString) },
+        email: { type: new GraphQLNonNull(GraphQLString) },
+        password: { type: new GraphQLNonNull(GraphQLString) },
+        city: { type: new GraphQLNonNull(GraphQLString) },
+        address: { type: new GraphQLNonNull(GraphQLString) },
+        department: { type: new GraphQLNonNull(GraphQLString) },
+        // status: { type: new GraphQLNonNull(GraphQLString) },
+        status: { type: GraphQLString },
+        isProjectManager: { type: new GraphQLNonNull(GraphQLBoolean) },
+        isTeamLeader: { type: new GraphQLNonNull(GraphQLBoolean) },
+        // photo: { type: new GraphQLNonNull(GraphQLString) },
+        photo: { type: GraphQLString },
+        companyId: { type: new GraphQLNonNull(GraphQLString) },
+        // isValid: { type: new GraphQLNonNull(GraphQLBoolean) },
+        isValid: { type: GraphQLBoolean},
+
+      },
+      resolve(parent, args) {
+        const employer = new Employer({
+          firstName: args.firstName,
+          lastName: args.lastName,
+          phone: args.phone,
+          email: args.email,
+          password: args.password,
+          city: args.city,
+          address: args.address,
+          department: args.department,
+          status: args.status,
+          isProjectManager: args.isProjectManager,
+          isTeamLeader: args.isTeamLeader,
+          photo: args.photo,
+          companyId: args.companyId,
+          isValid: args.isValid,
+        });
+        return employer.save();
+      },
+    },
+    
+    // Update a Company
+    updateCompany: {
+      type: CompanyType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        name: { type: GraphQLString },
+        image: { type:GraphQLString },
+        ceoId: { type: GraphQLString },
+      },
+      resolve(parent, args) {
+        return Company.findByIdAndUpdate(
+          args.id,
+          {
+            $set: {
+              name: args.name,
+              image: args.image,
+              ceoId: args.ceoId,
+            },
+          },
+          { new: true }
+        );
+      },
+    },
+    //Update a Employer
+    updateEmployer: {
+      type: EmployerType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        firstName: { type: GraphQLString },
+        lastName: { type: GraphQLString },
+        phone: { type: GraphQLString },
+        email: { type: GraphQLString },
+        password: { type: GraphQLString },
+        city: { type: GraphQLString },
+        address: { type: GraphQLString },
+        department: { type: GraphQLString },
+        // status: { type: GraphQLString },
+        status: { type: GraphQLString },
+        isProjectManager: { type: GraphQLBoolean },
+        isTeamLeader: { type: GraphQLBoolean },
+        // photo: { type: GraphQLString },
+        photo: { type: GraphQLString },
+        companyId: { type: GraphQLString },
+        // isValid: { type: GraphQLBoolean },
+        isValid: { type: GraphQLBoolean},
+      },
+      resolve(parent, args) {
+        return Employer.findByIdAndUpdate(
+          args.id,
+          {
+            $set: {
+              firstName: args.firstName,
+              lastName: args.lastName,
+              phone: args.phone,
+              email: args.email,
+              password: args.password,
+              city: args.city,
+              address: args.address,
+              department: args.department,
+              status: args.status,
+              isProjectManager: args.isProjectManager,
+              isTeamLeader: args.isTeamLeader,
+              photo: args.photo,
+              companyId: args.companyId,
+              isValid: args.isValid,
+            },
+          },
+          { new: true }
+        );
+      },
+
+    }
     
     // Delete a client
     // deleteClient: {
