@@ -33,21 +33,21 @@ function EmployerInfo({employer}) {
                 </div>
                 <hr/>
                 <div className='employer-Info-body1'>
-                    <h5> <FcInvite/> : {employer.email}</h5>
-                    <h5><FcTabletAndroid/> : {employer.phone}</h5>
-                    <h5><FcConferenceCall/> : {employer.teamName}</h5>
-                    <h5><FcBriefcase/> : {employer.projectName}</h5>
+                    <h5> <FcInvite/>  {employer.email}</h5>
+                    <h5><FcTabletAndroid/>  {employer.phone}</h5>
+                    <h5><FcConferenceCall/>  {employer.teamName}</h5>
+                    <h5><FcBriefcase/>  {employer.projectName}</h5>
                     {employer.isTeamLeader &&
-                        <h5>Team Leader</h5>
+                        <h5 style={{textAlign:"center"}}> Team Leader</h5>
                     }
                     {employer.isProjectManager &&
-                        <h5>Project Manager</h5>
+                        <h5 style={{textAlign:"center"}}>Project Manager</h5>
                     }
                 </div>
                 <hr/>
                 <div className='employer-Info-body2'>
-                    <h5><FcCalendar/> : {employer.birthday}</h5>
-                    <h5><FcHome/> : {employer.city} - {employer.address}</h5>
+                    <h5><FcCalendar/>  {employer.birthday}</h5>
+                    <h5><FcHome/>  {employer.city} - {employer.address}</h5>
                 </div>
                 <div className='employer-Info-tail'>
                     <Row className="justify-content-md-center" style={{gap:"2rem"}}>
