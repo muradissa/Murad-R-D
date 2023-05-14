@@ -1,10 +1,12 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import AddEmployer from './AddEmployer';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 function EmployersHeader() {
+  const [lgShow, setLgShow] = useState(false);
+
   return (
     <div style={{ margin: '30px 0px' ,width:"100%" }} >
         <h2>
@@ -26,7 +28,13 @@ function EmployersHeader() {
               </Form> 
             </Col>
             <Col md={{ span: 4, offset: 4 }}>
-              <AddEmployer />
+              <div className='justify-content-end' style={{display:"flex",marginRight:"1rem"}}>
+                  <Button onClick={() => setLgShow(true)} style={{ marginLeft:"inherit"}}>New Employer +</Button>
+              </div>
+              {lgShow && 
+                <AddEmployer lgShow={lgShow} setLgShow={setLgShow}/> 
+              }
+              {/* <AddEmployer lgShow={lgShow} setLgShow={setLgShow}/> */}
             </Col>
           </Row>
             

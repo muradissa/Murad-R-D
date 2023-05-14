@@ -2,7 +2,8 @@ const Project = require('../models/Project');
 const Company = require('../models/Company');
 const Employer = require('../models/Employer');
 const Team = require('../models/Team');
-
+// import { Kind } from 'graphql/language';
+const {Kind} = require('graphql/language');
 // const Client = require('../models/Client');
 
 const {
@@ -14,13 +15,52 @@ const {
   GraphQLNonNull,
   GraphQLEnumType,
   GraphQLBoolean,
+  GraphQLScalarType ,
+  
 } = require('graphql');
 
+
+// const resolverMap = {
+//   Date: new GraphQLScalarType({
+//       name: 'Date',
+//       description: 'Date custom scalar type',
+//       parseValue(value) {
+//           return new Date(value); // value from the client
+//       },
+//       serialize(value) { 
+//           return value.getTime(); // value sent to the client
+//       },
+//       parseLiteral(ast) {
+//           if (ast.kind === Kind.INT) {
+//           return parseInt(ast.value, 10); // ast value is always in string format
+//           }
+//           return null;
+//       },
+//   })
+// };
+
+const  Date= new GraphQLScalarType({
+  name: 'Date',
+  description: 'Date custom scalar type',
+  parseValue(value) {
+      return new Date(value); // value from the client
+  },
+  serialize(value) { 
+      return value.getTime(); // value sent to the client
+  },
+  parseLiteral(ast) {
+      if (ast.kind === Kind.INT) {
+      return parseInt(ast.value, 10); // ast value is always in string format
+      }
+      return null;
+  },
+})
 
 // Company Type
 const CompanyType = new GraphQLObjectType({
   name: 'Company',
   fields: () => ({
+    
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     image: { type: GraphQLString },
@@ -46,6 +86,7 @@ const EmployerType = new GraphQLObjectType({
     phone: { type: GraphQLString },
     email: { type: GraphQLString },
     password: { type: GraphQLString },
+    birthday:{type: GraphQLString},
     city: { type: GraphQLString },
     address: { type: GraphQLString },
     department: { type: GraphQLString },
@@ -332,6 +373,7 @@ const mutation = new GraphQLObjectType({
         phone: { type: new GraphQLNonNull(GraphQLString) },
         email: { type: new GraphQLNonNull(GraphQLString) },
         password: { type: new GraphQLNonNull(GraphQLString) },
+        birthday: { type: new GraphQLNonNull(GraphQLString) },
         city: { type: new GraphQLNonNull(GraphQLString) },
         address: { type: new GraphQLNonNull(GraphQLString) },
         department: { type: new GraphQLNonNull(GraphQLString) },
@@ -353,6 +395,7 @@ const mutation = new GraphQLObjectType({
           phone: args.phone,
           email: args.email,
           password: args.password,
+          birthday:args.birthday,
           city: args.city,
           address: args.address,
           department: args.department,
@@ -400,6 +443,7 @@ const mutation = new GraphQLObjectType({
         phone: { type: GraphQLString },
         email: { type: GraphQLString },
         password: { type: GraphQLString },
+        birthday: { type: GraphQLString },
         city: { type: GraphQLString },
         address: { type: GraphQLString },
         department: { type: GraphQLString },
@@ -423,6 +467,7 @@ const mutation = new GraphQLObjectType({
               phone: args.phone,
               email: args.email,
               password: args.password,
+              birthday:args.birthday,
               city: args.city,
               address: args.address,
               department: args.department,

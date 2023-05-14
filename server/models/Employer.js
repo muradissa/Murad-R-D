@@ -25,6 +25,10 @@ const EmployerSchema = new mongoose.Schema({
     required: true,
     
   },
+  birthday:{
+    type: Date,
+    required: true,
+  },
   city: {
     type: String,
     required: true,

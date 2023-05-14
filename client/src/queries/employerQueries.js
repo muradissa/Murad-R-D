@@ -12,6 +12,8 @@ const GET_EMPLOYERS = gql`
         department
         # teamName
         # projectName 
+        birthday
+        status
         city
         address
         companyId
