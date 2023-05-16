@@ -39,7 +39,7 @@ function NavbarSec() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Form className="d-flex">
+          {/* <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
@@ -47,7 +47,11 @@ function NavbarSec() {
               aria-label="Search"
             />
             <Button variant="outline-success">Search</Button>
-          </Form>
+          </Form> */}
+          <div className="d-flex">
+            <Button variant="outline-info">Login</Button>
+            <Button variant="info">Register</Button>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -42,7 +42,7 @@ function App() {
       <ApolloProvider client={client}>
         <Router>
           {/* <Header /> */}
-          <NavbarPri/>
+          {/* <NavbarPri/> */}
           <NavbarSec/>
           <div className='container'>
             <Routes>
