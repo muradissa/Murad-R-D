@@ -49,9 +49,9 @@ function App() {
           <div className='container'>
             <Routes>
               <Route path='/employers' element={<Employers />} />
-              <Route path='/myteam' element={<MyTeam />} />
+              {/* <Route path='/myteam' element={<MyTeam />} /> */}
               <Route path='/teams' element={<Teams />} />
-              <Route path='/newteam' element={<NewTeam />} />
+              {/* <Route path='/newteam' element={<NewTeam />} /> */}
               <Route path='/departments' element={<Departmentss />} />
 
 

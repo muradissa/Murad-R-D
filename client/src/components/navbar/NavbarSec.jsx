@@ -20,15 +20,17 @@ function NavbarSec() {
             <Nav.Link href="#action1">Home</Nav.Link>
             <Nav.Link href="/employers">Employers</Nav.Link>
             <Nav.Link href="/departments">Departments</Nav.Link>
+            <Nav.Link href="/teams">Teams</Nav.Link>
+
             {/* <Nav.Link href="#action2">My profile</Nav.Link> */}
-            <NavDropdown title="Teams" id="navbarScrollingDropdown2">
+            {/* <NavDropdown title="Teams" id="navbarScrollingDropdown2">
               <NavDropdown.Item href="/myteam">My Team</NavDropdown.Item>
               <NavDropdown.Item href="/teams">All Teams</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/newteam">
                 Add new team
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
 
             <NavDropdown title="Projets" id="navbarScrollingDropdown3">
               <NavDropdown.Item href="#action3">My Projects</NavDropdown.Item>
