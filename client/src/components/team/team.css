@@ -1,40 +1,3 @@
-/* .card-img-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 150px;
-    overflow: hidden;
-  }
-
-  .card-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .team-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-
-  .team-leader, .team-members {
-    font-size: 0.9rem;
-    color: #6c757d;
-  }
-
-  .more-info-btn, .edit-popup-btn {
-    font-size: 0.9rem;
-    text-decoration: none;
-    color: #007bff;
-    margin-right: 1rem;
-  }
-
-  .more-info-btn:hover, .edit-popup-btn:hover {
-    text-decoration: underline;
-  } */
-
-
 
   .team-cards .card {
     margin: 1rem;
@@ -91,7 +54,6 @@
   
   .new-team-form  h2 {
     font-size: 2rem;
-    margin-bottom: 2rem;
     color: #4e4e4e;
   }
   
@@ -103,13 +65,14 @@
   }
   
   .new-team-form .form-group {
-    width: 100%;
+    /* width: 10%; */
     margin-bottom: 2rem;
   }
   
   .new-team-form .form-label {
     font-size: 1.2rem;
     color: #4e4e4e;
+    margin-top: 20px;
   }
   
   .new-team-form .form-control {
@@ -118,6 +81,8 @@
     border-radius: 5px;
     border: 1px solid #ccc;
     box-shadow: 0 2;
+    max-width: 350px;
+    /* width: 400px; */
   }
 
   .new-team-form .form-control:focus {
@@ -145,7 +110,45 @@
     transform: translateY(2px);
     box-shadow: none;
   }
-  
+  .new-team-form .list h5{
+    text-align: center;
+  }
+  .new-team-form .list ul{
+    /* background-color: rgba(108, 99, 255,0.1); */
+    background-color: rgb(245, 245, 245);
+
+    padding: 20px;
+    border:1px solid ;
+    border-radius: 1rem;
+    width: fit-content;
+    margin: auto auto;
+    list-style-type: none;
+  } 
+  .new-team-form .list li{
+    cursor: pointer;
+  }
+  .new-team-form .list .selected{
+    /* background-color: rgba(108, 99, 255,0.7); */
+    background-color: #6c63ff;
+    color: #fff;
+    /* padding: 20px;
+    border:1px solid ; */
+    border-radius: 0.5rem;
+    /* width: fit-content;
+    margin: auto auto; */
+  } 
+  /* #teamleader-dropdown{
+    min-width: 50%;
+    text-align: end;
+    font-size: 1.1em;
+} */
+  .new-team-form .team-members{
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 1rem;
+    min-height:10vh ;
+  }
   @media (min-width: 768px) {
     .new-team-form {
       width: 80%;
@@ -164,42 +167,182 @@
     }
   }
   
-  /* @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideIn {
-    from {
-      transform: translateY(-100px);
-    }
-    to {
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes slideOut {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(-100px);
-    }
-  }
-  
-  .fade-in {
-    animation: fadeIn 0.5s ease-in-out;
-  }
-  
-  .slide-in {
-    animation: slideIn 0.5s ease-in-out;
-  }
-  
-  .slide-out {
-    animation: slideOut 0.5s ease-in-out;
-  }
-   */
+  .new-team-form .list ul{
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.form-control-flex {
+  display: flex;
+  gap: 20px;
+
+}
+
+/********************************/
+
+
+
+/* .team-info-container {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.team-info-container .team-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.team-info-container .team-section {
+  margin-bottom: 30px;
+}
+
+.team-info-container .team-section h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.team-info-container .team-leader-info p,
+.team-info-container .team-members-info p,
+.team-info-container .projects-info p {
+  margin: 0;
+}
+
+.team-info-container .team-member,
+.team-info-container .project {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.team-info-container .project {
+  background-color: #f9f9f9;
+}
+
+.team-info-container .project p {
+  font-weight: bold;
+}
+
+.team-info-container .project:last-child {
+  margin-bottom: 0;
+} */
+
+
+.team-info-container {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+}
+
+.team-name {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.team-section {
+  margin-bottom: 30px;
+}
+
+.team-section h3 {
+  color: #555;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.team-leader-info {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.team-leader-info p {
+  margin: 5px 0;
+}
+
+.team-members-info,
+.projects-info {
+  width: 100%;
+  background-color: #fff;
+  border-collapse: collapse;
+  border-radius: 5px;
+}
+
+.team-members-info th,
+.team-members-info td,
+.projects-info th,
+.projects-info td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.team-members-info th:first-child,
+.team-members-info td:first-child,
+.projects-info th:first-child,
+.projects-info td:first-child {
+  border-top-left-radius: 5px;
+}
+
+.team-members-info th:last-child,
+.team-members-info td:last-child,
+.projects-info th:last-child,
+.projects-info td:last-child {
+  border-top-right-radius: 5px;
+}
+
+.team-members-info tbody tr:nth-child(even),
+.projects-info tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.team-members-info tbody tr:hover,
+.projects-info tbody tr:hover {
+  background-color: #e0e0e0;
+}
+
+.team-members-info td,
+.projects-info td {
+  white-space: nowrap;
+}
+
+.team-members-info th:nth-child(1),
+.team-members-info td:nth-child(1),
+.projects-info th:nth-child(1),
+.projects-info td:nth-child(1) {
+  width: 25%;
+}
+
+.team-members-info th:nth-child(2),
+.team-members-info td:nth-child(2),
+.projects-info th:nth-child(2),
+.projects-info td:nth-child(2) {
+  width: 20%;
+}
+
+.team-members-info th:nth-child(3),
+.team-members-info td:nth-child(3),
+.projects-info th:nth-child(3),
+.projects-info td:nth-child(3) {
+  width: 25%;
+}
+
+.team-members-info th:nth-child(4),
+.team-members-info td:nth-child(4),
+.projects-info th:nth-child(4),
+.projects-info td:nth-child(4) {
+  width: 30%;
+}

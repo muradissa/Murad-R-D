@@ -11,6 +11,7 @@ import Teams from './components/team/Teams';
 import MyTeam from './components/team/MyTeam';
 import NewTeam from './components/team/NewTeam';
 import Departmentss from './components/department/Departmentss';
+import SecondaryNavbar from './components/navbar/SecondaryNavbar';
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -44,6 +45,7 @@ function App() {
           {/* <Header /> */}
           {/* <NavbarPri/> */}
           <NavbarSec/>
+          {/* <SecondaryNavbar></SecondaryNavbar> */}
           <div className='container'>
             <Routes>
               <Route path='/employers' element={<Employers />} />

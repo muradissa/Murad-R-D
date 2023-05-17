@@ -203,4 +203,12 @@
 #department-dropdown{
     min-width: 50%;
     text-align: end;
+    font-size: 1.1em;
+
+}
+
+.add-employer .form-control:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #6c63ff;
+  border-color: #6c63ff;
 }

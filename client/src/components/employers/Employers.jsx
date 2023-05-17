@@ -9,6 +9,7 @@ import { useQuery } from '@apollo/client';
 // import ClientRow from './ClientRow';
 import Spinner from '../Spinner';
 import { GET_EMPLOYERS } from '../../queries/employerQueries';
+import SecondaryNavbar from '../navbar/SecondaryNavbar';
 
 
 // const employees = [
@@ -125,6 +126,7 @@ import { GET_EMPLOYERS } from '../../queries/employerQueries';
 //     address: '890 Cedar St'
 //   }
 // ]
+const navItems=[{name:"All Employers",href:"#"},{name:"asd",href:"#"},{name:"New Employer",href:"#"},]
 
 function Employers() {
     /**
@@ -137,6 +139,7 @@ function Employers() {
     const { loading, error, data } = useQuery(GET_EMPLOYERS,{
       variables:{companyId: "64608daac56032e3f109b61f"},
     });
+    // const navItems=[{name:"All Employers",href:"#"},{name:"asd",href:"#"},{name:"New Employer",href:"#"}]
 
     const [employer, setEmployer] = useState({});
     if (loading) return <Spinner />;
@@ -151,6 +154,7 @@ function Employers() {
       <>
         {!loading && !error && (
           <>
+          <SecondaryNavbar navItems={navItems}/>
           <EmployersHeader/>
           {/* <AddEmployer/> */}
           <div className='row employees-body' style={{width:"100%"}}>

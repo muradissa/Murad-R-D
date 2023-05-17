@@ -4,18 +4,18 @@ import { Button, Form } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Dropdown from 'react-bootstrap/Dropdown';
-import './team.css';
+import './team2.css';
 
 const departmentOptions = ['Marketing', 'Human Resources', 'Finance', 'Legal', 'Sales', 'UX/UI' ,'Software Development', 'Devops', 'QA','Other' ];
 const leftList = ['Manager', 'Engineer', 'Intern', 'Other'];
 
-function NewTeam(props) {
+function AddTeam(props) {
   const [name, setName] = useState('');
   const [department, setDepartment] = useState('');
   const [teamLeader, setTeamLeader] = useState('');
   const [teamMembers, setTeamMembers] = useState('');
 
-  const [leftItems, setLeftItems] = useState(leftList);
+  // const [leftItems, setLeftItems] = useState(leftList);
   const [selectedLeft, setSelectedLeft] = useState([]);
   const handleLeftClick = (item) => {
     const newSelected = [...selectedLeft];
@@ -45,7 +45,7 @@ function NewTeam(props) {
   };
 
   return (
-    <div className="new-team-form">
+    <div className="new-team-form2">
       
       <h2>Add New Team</h2>
       <hr style={{width:"100%"}}></hr>
@@ -54,7 +54,7 @@ function NewTeam(props) {
         <Row style={{width:"100%"}}>
           <Col>
 
-            <Form.Group controlId="formTeamName">
+            {/* <Form.Group controlId="formTeamName" className='form-group-row'>
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
@@ -63,11 +63,10 @@ function NewTeam(props) {
                 placeholder="Enter team name"
                 required
               />
-            </Form.Group>
+            </Form.Group> */}
 
-            <Form.Group controlId="formDepartment">
+            {/* <Form.Group controlId="formDepartment">
               <Form.Label>Department</Form.Label>
-                {/* <Dropdown className='justify-content-end' style={{display:"flex"}}> */}
                 <Dropdown className='justify-content-start' style={{display:"flex"}}>
                     <Dropdown.Toggle variant="secondary" id="department-dropdown">
                     {department ? department : 'Select a department'}
@@ -78,11 +77,9 @@ function NewTeam(props) {
                         ))}
                     </Dropdown.Menu>
                 </Dropdown>
-              </Form.Group>
-          
-            <Form.Group controlId="formTeamLeader" className='form-control-flexx '> 
+              </Form.Group> */}
+            {/* <Form.Group controlId="formTeamLeader" className='form-control-flexx '> 
               <Form.Label>Team Leader</Form.Label>
-                {/* <Dropdown className='justify-content-end' style={{display:"flex"}}> */}
                 <Dropdown className='justify-content-start' style={{display:"flex"}}>
                     <Dropdown.Toggle variant="secondary" id="teamleader-dropdown">
                     {department ? department : ''}
@@ -93,6 +90,62 @@ function NewTeam(props) {
                         ))}
                     </Dropdown.Menu>
                 </Dropdown>
+              </Form.Group> */}
+              <Form.Group controlId="formTeamName" className='form-group-row'>
+                <Row className="align-items-center">
+                  <Col xs={4}>
+                        <Form.Label>Team Name</Form.Label>
+                  </Col>
+                  <Col xs={8}>
+                  <Form.Control
+                    type="text"
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                    placeholder="Enter team name"
+                    required
+                  />
+                  </Col>
+                </Row>
+              </Form.Group>
+
+              <Form.Group controlId="formDepartment" className='form-group-row'>
+                <Row className="align-items-center">
+                  <Col xs={4}>
+                      <Form.Label>Department</Form.Label>
+                  </Col>
+                  <Col xs={8}>
+                    <Dropdown className='justify-content-start' style={{display:"flex"}}>
+                        <Dropdown.Toggle variant="secondary" id="department-dropdown2">
+                        {department ? department : 'Select a department'}
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            {departmentOptions.map((option) => (
+                                <Dropdown.Item key={option} onClick={() => setDepartment(option)}>{option}</Dropdown.Item>
+                            ))}
+                        </Dropdown.Menu>
+                    </Dropdown>
+                  </Col>
+                </Row>
+              </Form.Group>
+
+              <Form.Group controlId="formTeamLeader" className='form-group-row'>
+                <Row className="align-items-center">
+                  <Col xs={4}>
+                    <Form.Label>Team Leader</Form.Label>
+                  </Col>
+                  <Col xs={8}>
+                    <Dropdown className='justify-content-start' style={{ display: "flex" ,}}>
+                      <Dropdown.Toggle variant="secondary" id="teamleader-dropdown">
+                        {department ? department : 'Select a leader'}
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        {departmentOptions.map((option) => (
+                          <Dropdown.Item key={option}>{option}</Dropdown.Item>
+                        ))}
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </Col>
+                </Row>
               </Form.Group>
               <div className='team-members'>
                 <h6>
@@ -123,10 +176,11 @@ function NewTeam(props) {
           </Col>
         </Row>
         <hr/>
-        <Button variant="primary" type="submit">Add Team</Button>
+        
+        <Button variant="primary" type="submit" style={{margin:"auto auto",display:"block"}}>Add Team</Button>
       </Form>
     </div>
   );
 }
 
-export default NewTeam;
+export default AddTeam;
