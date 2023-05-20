@@ -38,7 +38,7 @@ function TeamCard({team}) {
                 <Card.Title className="team-title">{team.department} - {team.name}</Card.Title>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                <ListGroup.Item className="team-leader">Team leader: {team.teamLeader}</ListGroup.Item>
+                <ListGroup.Item className="team-leader">Team leader: {team.teamLeader.firstName} {team.teamLeader.lastName}</ListGroup.Item>
                 <ListGroup.Item className="team-members">Team members {team.teamMembers.length}</ListGroup.Item>
                 </ListGroup>
                 <Card.Body>

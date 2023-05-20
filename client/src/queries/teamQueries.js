@@ -1,26 +1,30 @@
 import { gql } from '@apollo/client';
 
-const GETTeams = gql`
+const GET_Teams = gql`
   query getCompanyTeams( $companyId:ID!) {
-    companyTeams(companyId: $companyId){
+    companyTeamsInfo(companyId: $companyId){
       
         id
         name
-        teamleader{
+        department
+        companyId
+        teamLeader{
             firstName
             lastName
             email
             phone
+            status
         }
-        employers{
+        teamMembers{
             firstName
             lastName
             email
             phone
+            status
         }
         companyId
     }
   }
 `;
 
-export { GETTeams };
+export { GET_Teams };

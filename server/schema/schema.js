@@ -219,17 +219,17 @@ const TeamInfoType = new GraphQLObjectType({
   }),
 });
 
-const TeamType2 = new GraphQLObjectType({
-  name: 'Team',
-  fields: () => ({
-    id: { type: GraphQLID },
-    name: { type: GraphQLString },
-    department: { type: GraphQLString },
-    teamLeaderId:{ type: EmployerType },
-    companyId: { type: GraphQLString }, // GraphQLID
-    teamMembersId:{type: GraphQLList(EmployerType)},
-  }),
-});
+// const TeamType2 = new GraphQLObjectType({
+//   name: 'Team',
+//   fields: () => ({
+//     id: { type: GraphQLID },
+//     name: { type: GraphQLString },
+//     department: { type: GraphQLString },
+//     teamLeaderId:{ type: EmployerType },
+//     companyId: { type: GraphQLString }, // GraphQLID
+//     teamMembersId:{type: GraphQLList(EmployerType)},
+//   }),
+// });
 
 /////////////////
 /////////////////
