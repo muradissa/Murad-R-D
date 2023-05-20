@@ -120,6 +120,35 @@ const ProjectType = new GraphQLObjectType({
   }),
 });
 
+// // Team Type  
+// const TeamType = new GraphQLObjectType({
+//   name: 'Team',
+//   fields: () => ({
+//     id: { type: GraphQLID },
+//     name: { type: GraphQLString },
+//     department: { type: GraphQLString },
+//     team:{ 
+//       type: EmployerType ,
+//       resolve(parent, args) {
+//       return Employer.findById(parent.teamLeaderID);
+//     },},
+//     projects: {
+//       type: ProjectType,
+//       resolve(parent, args) {
+//         return Project.find({
+//           _id: {
+//             $in: parent.projectsId
+//           }
+//         });
+//       },
+//     },
+//     employers:{ 
+//       type: EmployerType ,
+//       resolve(parent, args) {
+//       return Employer.find({'teamId':parent.id});
+//     },},
+//   }),
+// });
 // Team Type  
 const TeamType = new GraphQLObjectType({
   name: 'Team',
@@ -127,29 +156,80 @@ const TeamType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     department: { type: GraphQLString },
-    team:{ 
-      type: EmployerType ,
-      resolve(parent, args) {
-      return Employer.findById(parent.teamLeaderID);
-    },},
-    projects: {
-      type: ProjectType,
-      resolve(parent, args) {
-        return Project.find({
-          _id: {
-            $in: parent.projectsId
-          }
-        });
-      },
-    },
-    employers:{ 
-      type: EmployerType ,
-      resolve(parent, args) {
-      return Employer.find({'teamId':parent.id});
-    },},
+    teamLeaderId:{ type: GraphQLString },
+    companyId: { type: GraphQLString }, // GraphQLID
+    teamMembersId:{type: new GraphQLList(GraphQLString)},
   }),
 });
 
+const TeamInfoType = new GraphQLObjectType({
+  name: 'TeamInfo',
+  fields: () => ({
+    id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    department: { type: GraphQLString },
+    // teamLeader:{
+    //   type: EmployerType,
+    //   resolve(parent, args) {
+    //     return Employer.findById(parent.teamLeaderId);
+    //   },
+    // },
+    teamLeader: {
+      type: new GraphQLObjectType({
+        name: 'TeamLeaderInfo',
+        fields: {
+          id: { type: GraphQLID },
+          firstName: { type: GraphQLString },
+          lastName: { type: GraphQLString },
+          phone: { type: GraphQLString },
+          email: { type: GraphQLString },
+          status: { type: GraphQLString },
+        },
+      }),
+      resolve(parent, args) {
+        return Employer.findById(parent.teamLeaderId);
+      },
+    },
+    // teamMembers:{
+    //   type: new GraphQLList(EmployerType),
+    //   resolve(parent, args) {
+    //     return Employer.find({ _id: { $in: parent.teamMembersId } }); 
+    //   },
+    // },
+    teamMembers: {
+      type: new GraphQLList(
+        new GraphQLObjectType({
+          name: 'TeamMemberInfo',
+          fields: {
+            id: { type: GraphQLID },
+            firstName: { type: GraphQLString },
+            lastName: { type: GraphQLString },
+            phone: { type: GraphQLString },
+            email: { type: GraphQLString },
+            status: { type: GraphQLString },
+
+          },
+        })
+      ),
+      resolve(parent, args) {
+        return Employer.find({ _id: { $in: parent.teamMembersId } });
+      },
+    },
+    companyId: { type: GraphQLString }, // GraphQLID
+  }),
+});
+
+const TeamType2 = new GraphQLObjectType({
+  name: 'Team',
+  fields: () => ({
+    id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    department: { type: GraphQLString },
+    teamLeaderId:{ type: EmployerType },
+    companyId: { type: GraphQLString }, // GraphQLID
+    teamMembersId:{type: GraphQLList(EmployerType)},
+  }),
+});
 
 /////////////////
 /////////////////
@@ -218,6 +298,37 @@ const RootQuery = new GraphQLObjectType({
         // return Employer.find({"companyId":args.companyId});
         // console.log(employers)
         return employers;
+      },
+    },
+    companyTeams: {
+      type: new GraphQLList(TeamType),
+      args: { companyId: { type: GraphQLID } },
+      resolve(parent, args) {
+        const teams =Team.find({"companyId":args.companyId});
+        // return Employer.find({"companyId":args.companyId});
+        // console.log(employers)
+        return teams;
+      },
+    },
+    companyTeamsInfo: {
+      type: new GraphQLList(TeamInfoType ),
+      args: { companyId: { type: GraphQLID } },
+      resolve(parent, args) {
+        const teams =Team.find({"companyId":args.companyId});
+        // var teamInfo =[];
+        // var teamMembers= [];
+        // teams.forEach((team) => {
+        //   team.teamMembersId.forEach((teamMemberId) => {
+        //     const employer = Employer.findById(teamMemberId);
+        //     teamMembers.push(employer)
+        //   })
+        //   //const teamMembers = Employer.find({"teamId":team._id});
+        //   const teamLeadar = Employer.findById(team.teamLeaderId);
+
+        //   const teamLeader = [];
+        //   teamInfo.push(team.teamMembersId);
+        // });
+        return teams;
       },
     },
   },
@@ -363,6 +474,7 @@ const mutation = new GraphQLObjectType({
         return company.save();
       },
     },
+
     //Add a Employer
     // firstName lastName phone email password city address department status isPrpjectManager isTeamLeader photo companyId isValid
     addEmployer: {
@@ -407,6 +519,29 @@ const mutation = new GraphQLObjectType({
           isValid: args.isValid,
         });
         return employer.save();
+      },
+    },
+    addTeam: {
+      type: TeamType,
+      args: {
+        name: { type: new GraphQLNonNull(GraphQLString) },
+        department: { type:new  GraphQLNonNull(GraphQLString) },
+        companyId: { type: new GraphQLNonNull(GraphQLString) },
+        teamLeaderId: { type: new GraphQLNonNull(GraphQLString) },
+        teamMembersId: { type: new GraphQLList(GraphQLString) },
+
+      },
+      resolve(parent, args) {
+        const team = new Team({
+          name: args.name,
+          department:args.department,
+          teamLeaderId:args.teamLeaderId,
+          teamMembersId: args.teamMembersId,
+          companyId: args.companyId,
+
+        });
+        // console.log(args.name);
+        return team.save();
       },
     },
     
