@@ -17,7 +17,7 @@ function NavbarSec() {
         
           <Nav className="justify-content-center flex-grow-1 pe-3"  style={{ gap: '20px' }}navbarScroll >
  
-            <Nav.Link href="#action1">Home</Nav.Link>
+            <Nav.Link href="/home">Home</Nav.Link>
             <Nav.Link href="/employers">Employers</Nav.Link>
             <Nav.Link href="/departments">Departments</Nav.Link>
             <Nav.Link href="/teams">Teams</Nav.Link>
